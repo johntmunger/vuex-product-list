@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <ProductListOne />
-    <ProductListTwo />
-    <router-view/>
+    <ProductListOne v-bind:products="products" />
+    <ProductListTwo v-bind:products="products" />
+    <!-- <router-view/> -->
   </div>
 </template>
 
