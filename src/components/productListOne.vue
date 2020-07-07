@@ -7,6 +7,7 @@
         <span class="name">${{product.price}}</span>
       </li>
     </ul>
+    <!-- Pass an amount parameter through the click event $4 below -->
     <button v-on:click="reducePrice">Reduce Price</button>
   </div>
 </template>
@@ -23,8 +24,9 @@ export default {
     }
   },
   methods: {
+    // Try to avoid 'commit' here, use dispatch to the action instead
     reducePrice: function() {
-      this.$store.commit('reducePrice');
+      this.$store.dispatch('reducePrice');
     }
   }
 }

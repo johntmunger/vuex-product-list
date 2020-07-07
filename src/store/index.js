@@ -25,17 +25,18 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    reducePrice:state => {
-      // Add a two second delay to replicate an http request
-      setTimeout(function() {
-        state.products.forEach(product => {
-          product.price -= 1;
-        });
-      }, 2000)
+    reducePrice:(state) => {
+      state.products.forEach(product => {
+        product.price -= 1;
+      });
     }
   },
   actions: {
-  },
-  modules: {
+    reducePrice:(context) => {
+      setTimeout(function() {
+        // payload passed in as the amount from the form click event
+        context.commit('reducePrice')
+      }, 2000)
+    }
   }
 });
