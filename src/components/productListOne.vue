@@ -13,21 +13,29 @@
 </template>
 
 <script>
+import { mapGetters} from 'vuex';
+import { mapActions} from 'vuex';
+
 export default {
   name: 'ProductListOne',
   computed: {
     products() {
       return this.$store.state.products;
     },
-    saleProducts() {
-      return this.$store.getters.saleProducts;
-    }
+    // saleProducts() {
+    //   return this.$store.getters.saleProducts;
+    // }
+    ...mapGetters([
+      'saleProducts'
+    ])
   },
   methods: {
-    // Try to avoid 'commit' here, use dispatch to the action instead
-    reducePrice: function() {
-      this.$store.dispatch('reducePrice');
-    }
+    // reducePrice: function() {
+    //   this.$store.dispatch('reducePrice');
+    // }
+    ...mapActions([
+      'reducePrice'
+    ])
   }
 }
 </script>
