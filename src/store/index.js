@@ -17,7 +17,7 @@ export default new Vuex.Store({
     saleProducts:state => {
       let saleProducts = state.products.map(product => { 
         return {
-          name: '**' + product.name + '**',
+          name: '**' + product.name + '** ',
           price: product.price / 2
         }
       });
