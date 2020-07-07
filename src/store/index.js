@@ -26,9 +26,12 @@ export default new Vuex.Store({
   },
   mutations: {
     reducePrice:state => {
-      state.products.forEach(product => {
-        product.price -= 1;
-      });
+      // Add a two second delay to replicate an http request
+      setTimeout(function() {
+        state.products.forEach(product => {
+          product.price -= 1;
+        });
+      }, 2000)
     }
   },
   actions: {
